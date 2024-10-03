@@ -4,8 +4,8 @@ import Header from './Components/Header';
 import { Outlet } from 'react-router-dom';
 
 function Layout() {
-  const element = document.querySelector('html');
-  element.classList.add('dark')
+  // const element = document.querySelector('html');
+  // element.classList.add('')
   return (
     <>
        <Header/>
