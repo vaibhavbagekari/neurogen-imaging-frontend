@@ -9,8 +9,8 @@ function Signup() {
     }
     return (
         <>
-            <div className='text-black dark:text-white  w-full h-[100vh] flex felx-col justify-center bg-img-logo'>
-                <div className='flex flex-col items-center max-h-max w-[90vw] md:w-[70vw] self-center text-center px-6  my-6 bg-black/90 backdrop-blur-xl'>
+            <div className='text-black dark:text-white  w-full h-[100vh] flex felx-col justify-center dark:bg-img-logo '>
+                <div className='flex flex-col items-center max-h-max w-[90vw] bg-white dark:shadow-neumorphismDark md:w-[70vw] self-center text-center px-6 shadow-neumorphism rounded-lg  my-6 dark:bg-black/90 backdrop-blur-xl'>
                     <h1 className=' font-bold text-2xl mt-9 md:text-5xl min-w-full m-1 p-2'>
                         Create Your New NeuroGen Account
                     </h1>

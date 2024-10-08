@@ -12,7 +12,7 @@ export const MENU_OPTIONS = {
         "Home":HOME,
         "About":ABOUT,
         "Login":LOGIN,
-        "Sign Up":SIGNUP
+        "SignUp":SIGNUP
     },
     "LOGIN":{
         "Home":HOME,
