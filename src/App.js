@@ -1,12 +1,11 @@
-import './App.css';
-import Header from './Components/Header';
+import React from 'react';
 import Signup from './Components/Signup';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-        <Header/>
-        <Signup></Signup>
+      <Signup />
     </div>
   );
 }
