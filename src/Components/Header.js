@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom';
 import * as routes from '../Constants/Routes';
 import logo from '../Assets/hLogo.png';
 import useTheme from '../Context/ThemeContext';
+import { getUser, removeCookie, setUser } from '../Utils/user';
 
 const Header = () => {
-  const [location, setLocation] = useState("PUBLIC");
-  const menuOptions = routes.MENU_OPTIONS[location] || {};
   const [isVisible, setIsVisible] = useState(true); // To track header visibility
   const [lastScrollY, setLastScrollY] = useState(0); // To track the last scroll position
+  const [menuOptions, setMenuOptions] = useState(routes.MENU_OPTIONS["PUBLIC"])
 
+ 
   const onChangeBtn = (e) => {
     const darkModestatus = e.currentTarget.checked
     if (darkModestatus) {
@@ -22,16 +23,12 @@ const Header = () => {
 
   const { themeMode, lightTheme, darkTheme } = useTheme()
 
-  // Function to control the visibility of the header
   const controlHeader = () => {
     const currentScrollY = window.scrollY;
 
-    // Only show the header when scrolling up and hide it when scrolling down
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      // User is scrolling down and has scrolled more than 100px
       setIsVisible(false);
     } else {
-      // User is scrolling up
       setIsVisible(true);
     }
     setLastScrollY(currentScrollY);
@@ -43,7 +40,6 @@ const Header = () => {
       window.removeEventListener('scroll', controlHeader);
     };
   }, [lastScrollY]);
-
   return (
     <>
       <div
@@ -61,7 +57,6 @@ const Header = () => {
               {label}
             </NavLink>
           ))}
-
           <label className=" absolute right-0 mr-3 inline-flex items-center cursor-pointer">
             <input
               type="checkbox"

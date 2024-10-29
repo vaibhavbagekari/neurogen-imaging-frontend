@@ -8,14 +8,16 @@ import Home from './Components/Public/Home';
 import About from './Components/Public/About';
 import Signup from './Components/Public/Signup';
 import Login from './Components/Public/Login';
+import { UserContextProvider } from './Context';
+import ProtectedRoute from './ProtectedRouts';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path='/' element={<Layout />} >
-      <Route path='/' element={<Navigate to="/home"/>}/>
-        <Route path='home' element={<Home />} />
-        <Route path='about' element={<About />} />
+        <Route path='/' element={<Navigate to="/home" />} />
+        <Route path='home' element={<Home/>} />
+        <Route path='about' element={<ProtectedRoute component={About} />} />
         <Route path='login' element={<Login />} />
       </Route>
       <Route path='/signup' element={<Signup />} />
@@ -26,11 +28,11 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserContextProvider>
+      <RouterProvider router={router} />
+    </UserContextProvider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();

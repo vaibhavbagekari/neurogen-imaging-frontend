@@ -20,11 +20,11 @@ function Signup() {
                     <form className='flex flex-wrap x-full md:w-[70%]  gap-2 justify-between '>
                         <div className="relative w-full md:w-[49%] my-2">
                             <input type="text" name="Firstname" className={floatingInputCss.input} placeholder=" " />
-                            <label for="Firstname" className={floatingInputCss.label}>First Name</label>
+                            <label htmlFor="Firstname" className={floatingInputCss.label}>First Name</label>
                         </div>
                         <div className="relative w-full md:w-[49%] my-2">
                             <input type="text" name="Lastname" className={floatingInputCss.input} placeholder=" " />
-                            <label for="Lastname" className={floatingInputCss.label}>Last Name</label>
+                            <label htmlFor="Lastname" className={floatingInputCss.label}>Last Name</label>
                         </div>
                         <div className="relative w-full">
                             <h2 className='flex justify-start mb-2'>Country/Region</h2>
@@ -40,22 +40,22 @@ function Signup() {
 
                         <div className="relative w-full my-2">
                             <input type="date" name="birthday" className={floatingInputCss.input} placeholder="" />
-                            <label for="bithday" className={floatingInputCss.label}>Birtday</label>
+                            <label htmlFor="bithday" className={floatingInputCss.label}>Birtday</label>
                         </div>
                         <div className="relative w-full my-2">
                             <input type="email" name="email" className={floatingInputCss.input} placeholder=" " />
-                            <label for="email" className={floatingInputCss.label}>Email</label>
+                            <label htmlFor="email" className={floatingInputCss.label}>Email</label>
                         </div>
 
                         <h2 className='w-full text-left'> This will be your new neurogen Accounte</h2>
 
                         <div className="relative w-full md:w-[49%] my-2">
                             <input type="password" name="password" className={floatingInputCss.input} placeholder=" " />
-                            <label for="password" className={floatingInputCss.label}>Password</label>
+                            <label htmlFor="password" autoCapitalize='false' className={floatingInputCss.label}>Password</label>
                         </div>
                         <div className="relative w-full md:w-[49%] my-2">
                             <input type="password" name="confirmPassword" className={floatingInputCss.input} placeholder=" " />
-                            <label for="confirmPassword" className={floatingInputCss.label}>Confirm Password</label>
+                            <label htmlFor="confirmPassword" autoCapitalize='false' className={floatingInputCss.label}>Confirm Password</label>
                         </div>
                         <div className=''>
                             verify with :
