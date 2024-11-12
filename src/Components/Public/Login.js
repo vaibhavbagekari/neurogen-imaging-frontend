@@ -1,28 +1,28 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../Context";
+import { UserContext }  from "../../Context";
+import toast from "react-hot-toast";
+import { LogIn } from "../../Services/UserServices";
+import { LANDING_PAGE } from "../../Constants/Routes";
 
 function Login() {
   const [isVisible, setIsVisible] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [formData, setFormData] = useState({});
 
   const { login } = useContext(UserContext); // Access login function from context
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulating authentication (Replace this with real authentication logic)
-    if (email === "test@example.com" && password === "password123") {
-      const user = { email: email, password: password }; // You might include other user info like name, role, etc.
-      login(user); // Call login from UserContext
-      navigate("/home"); // Redirect to home page after login
-    } else {
-      setError("Invalid email or password");
+    try {
+        const response = await LogIn(formData);
+        login(response.data)
+        toast.success('logIn successful:');
+        navigate(LANDING_PAGE)
+    } catch (error) {
+        toast.error('Error during Lgin:');
     }
-  };
-
+};
   const floatingInputCss = {
     input:
       "block px-2.5 pb-1.5 pt-3 w-full text-sm text-gray-300 bg-transparent rounded-lg border-1 border-gray-400 appearance-none dark:text-white dark:border-gray-100 border-2 dark:focus:border-primary-light focus:outline-none focus:ring-0 focus:border-primary-light peer",
@@ -35,12 +35,10 @@ function Login() {
   };
 
   const handleChange = (e) => {
-    if (e.target.name === "email") {
-      setEmail(e.target.value);
-    } else if (e.target.name === "password") {
-      setPassword(e.target.value);
-    }
-  };
+    const { name, value } = e.target;
+    setFormData(prevData => ({ ...prevData, [name]: value }));
+};
+
 
   return (
     <div className="text-black dark:text-white w-full h-[100vh] flex flex-col justify-center">
@@ -50,7 +48,7 @@ function Login() {
         </h1>
 
         <form
-          onSubmit={handleLogin}
+          onSubmit={handleSubmit}
           className="flex flex-wrap w-full gap-2 justify-between"
         >
           <div className="relative w-full my-2">

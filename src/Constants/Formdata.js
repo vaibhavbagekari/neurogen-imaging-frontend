@@ -64,10 +64,7 @@ export const signupFormConfig = [
   ];
   
 export const signupFormData={
-    name: '',
     email: '',
     password: '',
     confirmPassword: '',
-    username: '',
-    age: '',
 }

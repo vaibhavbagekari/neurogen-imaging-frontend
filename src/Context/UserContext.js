@@ -1,34 +1,43 @@
-import React, { useEffect, useState, createContext } from "react";
-import * as Utils from "../Utils";
+import { useState, useEffect, createContext } from "react";
+import * as Utils from "../Utils/index";
 
-// Create UserContext
 export const UserContext = createContext();
+
 const UserContextProvider = ({ children }) => {
-  const [user, setUser]= useState(null)
-  
+  const [user, setUser] = useState("");
+  const [isApprovedUser, setIsApprovedUser] = useState(false)
+
   const login = (user) => {
+    Utils.setIsApprovedUser(user.is_approved)
+    setIsApprovedUser(user.is_approved)
     Utils.setUser(user);
     setUser(user);
   };
 
   const logout = () => {
     Utils.removeCookie("user");
-    setUser(null);
+    setUser("");
+    Utils.removeCookie("isApprovedUser")
+    setIsApprovedUser("")
   };
 
-  const value = {
+  const values = {
     user,
     setUser,
+    isApprovedUser,
+    setIsApprovedUser,
     login,
     logout,
   };
 
   useEffect(() => {
-    const storedUser = Utils.getUser();
-    setUser(storedUser);
+    const user = Utils.getUser();
+    setUser(user);
+    const isApproved = Utils.getIsApprovedUser()
+    setIsApprovedUser(isApproved)
   }, []);
 
-  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={values}>{children}</UserContext.Provider>;
 };
 
 export default UserContextProvider;

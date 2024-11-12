@@ -1,0 +1,17 @@
+/* 3DModelViewer.css */
+
+.canvas-container {
+    width: 100%;
+    max-width: 800px; /* Customize width as desired */
+    height: 500px; /* Customize height as needed */
+    margin: 0 auto; /* Center the canvas */
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    background: #f8f9fa; /* Light background color */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  }
+  
+  canvas {
+    border-radius: inherit;
+  }
+  

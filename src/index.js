@@ -10,6 +10,12 @@ import Signup from './Components/Public/Signup';
 import Login from './Components/Public/Login';
 import { UserContextProvider } from './Context';
 import ProtectedRoute from './ProtectedRouts';
+import { Toaster } from 'react-hot-toast';
+import Spinner from './Common/Spinner';
+import LandingPage from './Components/Public/LandingPage';
+import { BLACK_HOLE, LANDING_PAGE, SOLAR_SYSTEM } from './Constants/Routes';
+import SolarSystem from './Components/Pages/SolarSystem';
+import BlackHole from './Components/Pages/Gaming';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,8 +23,11 @@ const router = createBrowserRouter(
       <Route path='/' element={<Layout />} >
         <Route path='/' element={<Navigate to="/home" />} />
         <Route path='home' element={<Home/>} />
-        <Route path='about' element={<ProtectedRoute component={About} />} />
+        <Route path='about' element={<About />} />
         <Route path='login' element={<Login />} />
+        <Route path={LANDING_PAGE} element={<LandingPage />}/>
+        <Route path={SOLAR_SYSTEM} element={<SolarSystem   />}/>
+        <Route path={BLACK_HOLE} element={<BlackHole   />}/>
       </Route>
       <Route path='/signup' element={<Signup />} />
     </>
@@ -28,6 +37,15 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          loading: {
+            icon: <Spinner size={4} />,
+          },
+        }}
+      />
     <UserContextProvider>
       <RouterProvider router={router} />
     </UserContextProvider>
