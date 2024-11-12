@@ -9,13 +9,12 @@ import About from './Components/Public/About';
 import Signup from './Components/Public/Signup';
 import Login from './Components/Public/Login';
 import { UserContextProvider } from './Context';
-import ProtectedRoute from './ProtectedRouts';
 import { Toaster } from 'react-hot-toast';
 import Spinner from './Common/Spinner';
 import LandingPage from './Components/Public/LandingPage';
-import { BLACK_HOLE, LANDING_PAGE, SOLAR_SYSTEM } from './Constants/Routes';
+import { GAMING, LANDING_PAGE, SOLAR_SYSTEM } from './Constants/Routes';
 import SolarSystem from './Components/Pages/SolarSystem';
-import BlackHole from './Components/Pages/Gaming';
+import Gaming from './Components/Pages/Gaming';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,7 +26,7 @@ const router = createBrowserRouter(
         <Route path='login' element={<Login />} />
         <Route path={LANDING_PAGE} element={<LandingPage />}/>
         <Route path={SOLAR_SYSTEM} element={<SolarSystem   />}/>
-        <Route path={BLACK_HOLE} element={<BlackHole   />}/>
+        <Route path={GAMING} element={<Gaming   />}/>
       </Route>
       <Route path='/signup' element={<Signup />} />
     </>
