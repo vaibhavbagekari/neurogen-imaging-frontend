@@ -6,3 +6,13 @@
     background-size: cover;
     background-position: center;
 }
+.gun_bg{
+    background-image: url("./Assets/gun_bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.solar_bg{
+    background-image: url("./Assets/solar_bg.jpg");
+    background-size: cover;
+    background-position: center;
+}

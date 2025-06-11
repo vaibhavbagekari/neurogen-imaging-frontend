@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import * as routes from "../Constants/Routes";
 import logo from "../Assets/hLogo.png";
@@ -7,7 +7,6 @@ import { UserContext } from "../Context";
 import { CiDark, CiLight } from "react-icons/ci";
 import UserProfileBadge from "../Common/UserProfileBadge";
 import LogOutButton from "../Common/LogOutButton";
-import { FaRegUserCircle } from "react-icons/fa";
 import { getInitials } from "../Utils";
 
 const Header = () => {

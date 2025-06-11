@@ -4,9 +4,9 @@ import * as Utils from "../Utils";
 
 const client = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
+  // headers: {
+  //   "Content-Type": "application/json",
+  // },
 });
 
 // Response interceptor to handle errors and responses

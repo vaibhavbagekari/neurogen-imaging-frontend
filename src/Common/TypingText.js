@@ -8,25 +8,22 @@ const TypingText = ({text, css="", pauseDuration=1500}) => {
 
   useEffect(() => {
     if (index < text.length && !isDeleting) {
-      // Typing text
       const timeout = setTimeout(() => {
         setDisplayedText((prev) => prev + text.charAt(index)); // Add one character at a time
         setIndex((prev) => prev + 1);
       }, typingSpeed);
-      return () => clearTimeout(timeout); // Cleanup
+      return () => clearTimeout(timeout);
     } else if (index === text.length && !isDeleting) {
-      // Pause after typing
       setTimeout(() => {
-        setIsDeleting(true); // Start deleting after a pause
+        setIsDeleting(true);
       }, pauseDuration);
     } else if (isDeleting && index > 0) {
       const timeout = setTimeout(() => {
-        setDisplayedText((prev) => prev.slice(0, -1)); // Remove one character at a time
+        setDisplayedText((prev) => prev.slice(0, -1));
         setIndex((prev) => prev - 1);
       }, typingSpeed);
-      return () => clearTimeout(timeout); // Cleanup
+      return () => clearTimeout(timeout);
     } else if (isDeleting && index === 0) {
-      // Once deletion is complete, start typing again
       setIsDeleting(false);
     }
   }, [index, isDeleting, text, typingSpeed]);

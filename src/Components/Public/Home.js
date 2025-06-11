@@ -1,11 +1,9 @@
-import React from "react";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import loader from "../../Assets/blocks-shuffle-3.svg";
 import TypingCard from "../../Common/TypingCard";
 import { student1, student2, student3 } from "../../Assets/Student";
 import { space1, space2, space3 } from "../../Assets/Space";
 import { envImg1, envImg2, envImg3 } from "../../Assets/Environment";
-import ModelViewer from "../../Common/ModelViewer";
 
 function Home() {
   const student = [loader, student1, loader, student2, loader, student3];
@@ -36,6 +34,7 @@ function Home() {
         </div>
         {/* <TypingText text={"vaibhav"} css={""}/> */}
       </section>
+      
       <div className="my-7 flex flex-wrap gap-2">
         <TypingCard
           text={
